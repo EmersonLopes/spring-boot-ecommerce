@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ecommerce-kafka
+  kafka:
+    bootstrap-address: localhost:9093
+    bootstrap-servers: localhost:9093
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+    default-property-inclusion: NON_NULL
+
+server:
+  port: 8090
+
+topics:
+  orders: orders
