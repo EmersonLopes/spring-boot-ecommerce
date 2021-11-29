@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: fraud-detector
+  kafka:
+    bootstrap-servers: localhost:9093
+    consumer:
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: group_fraud_detector
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+    default-property-inclusion: NON_NULL
+
+server:
+  port: 8091
+
+topics:
+  orders: orders
